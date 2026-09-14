@@ -6,7 +6,7 @@ HOSTELASSIST is a smart, full-stack predictive maintenance and facilities operat
 
 ## 🔗 Live Demo Link
 
-🚀 **Interactive Web Demo:** [Open HostelAssist Live Application](https://keerthanahs9632.github.io/HostelAssist-Smart-Hostel-Operations/)
+🚀 **Interactive Web Demo:** [Open HostelAssist Live Application]( https://keerthanahs9632.github.io/hostelassist-smart-hostel-management/)
 
 ---
 
