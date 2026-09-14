@@ -77,6 +77,39 @@
   ],
   "complaints": [
     {
+      "id": "cmp-1789398805153",
+      "ticketNumber": "CMP-2026-1005",
+      "studentId": "usr-student-1",
+      "studentName": "Ananya Iyer",
+      "studentEmail": "ananya.student@hostelassist.edu",
+      "roomNumber": "B-204",
+      "block": "Block B",
+      "title": "Water heater tap dripping",
+      "description": "Tap in bathroom B-204 is leaking slowly",
+      "category": "Plumbing",
+      "priority": "MEDIUM",
+      "status": "REPORTED",
+      "aiAnalysis": {
+        "category": "Plumbing",
+        "suggestedPriority": "MEDIUM",
+        "confidence": 0.89,
+        "detectedKeywords": [
+          "tap",
+          "leak",
+          "leaking"
+        ],
+        "safetyRiskDetected": false,
+        "possibleRootCause": "Degraded internal rubber washer or corroded spindle cartridge",
+        "recommendedAction": "Shut isolation valve, disassemble tap spindle, replace washer and Teflon seal",
+        "estimatedResolutionHours": 24,
+        "provider": "rule-based-fallback"
+      },
+      "slaDeadline": "2026-09-15T15:13:25.153Z",
+      "isOverdue": false,
+      "createdAt": "2026-09-14T15:13:25.153Z",
+      "updatedAt": "2026-09-14T15:13:25.153Z"
+    },
+    {
       "id": "cmp-1021",
       "ticketNumber": "CMP-2026-1021",
       "studentId": "usr-student-1",
@@ -94,7 +127,7 @@
       "assignedTechnicianId": "usr-tech-1",
       "assignedTechnicianName": "Rahul Verma",
       "slaDeadline": "2026-09-13T07:48:33.431Z",
-      "isOverdue": false,
+      "isOverdue": true,
       "aiAnalysis": {
         "category": "Electrical",
         "suggestedPriority": "HIGH",
@@ -295,6 +328,17 @@
       "actorRole": "TECHNICIAN",
       "notes": "On site in Room B-204. Power disconnected. Disassembling housing.",
       "timestamp": "2026-09-13T04:48:33.431Z"
+    },
+    {
+      "id": "h-1789398805153",
+      "complaintId": "cmp-1789398805153",
+      "action": "COMPLAINT_REPORTED",
+      "toStatus": "REPORTED",
+      "actorId": "usr-student-1",
+      "actorName": "Ananya Iyer",
+      "actorRole": "STUDENT",
+      "notes": "Reported by Ananya Iyer. AI evaluated as MEDIUM priority (Plumbing).",
+      "timestamp": "2026-09-14T15:13:25.153Z"
     }
   ],
   "assets": [
@@ -381,6 +425,16 @@
   ],
   "notifications": [
     {
+      "id": "notif-1789398805153-g5d7",
+      "userId": "usr-admin-1",
+      "title": "New MEDIUM Complaint: CMP-2026-1005",
+      "message": "Ananya Iyer reported: \"Water heater tap dripping\" in Room B-204 (Block B).",
+      "type": "INFO",
+      "complaintId": "cmp-1789398805153",
+      "isRead": false,
+      "createdAt": "2026-09-14T15:13:25.153Z"
+    },
+    {
       "id": "notif-1",
       "userId": "usr-student-1",
       "title": "Technician on Site",
@@ -446,6 +500,86 @@
     }
   ],
   "auditLogs": [
+    {
+      "id": "aud-1789399726424-6zgi",
+      "action": "USER_LOGIN",
+      "performedBy": "Dr. Ramesh Sharma",
+      "userRole": "ADMIN",
+      "entityType": "USER",
+      "entityId": "usr-admin-1",
+      "details": "Dr. Ramesh Sharma logged into ADMIN workspace.",
+      "timestamp": "2026-09-14T15:28:46.424Z"
+    },
+    {
+      "id": "aud-1789399724774-4uhd",
+      "action": "USER_LOGIN",
+      "performedBy": "Ananya Iyer",
+      "userRole": "STUDENT",
+      "entityType": "USER",
+      "entityId": "usr-student-1",
+      "details": "Ananya Iyer logged into STUDENT workspace.",
+      "timestamp": "2026-09-14T15:28:44.774Z"
+    },
+    {
+      "id": "aud-1789399722216-5abr",
+      "action": "USER_LOGIN",
+      "performedBy": "Rahul Verma",
+      "userRole": "TECHNICIAN",
+      "entityType": "USER",
+      "entityId": "usr-tech-1",
+      "details": "Rahul Verma logged into TECHNICIAN workspace.",
+      "timestamp": "2026-09-14T15:28:42.216Z"
+    },
+    {
+      "id": "aud-1789398822584-4q83",
+      "action": "USER_LOGIN",
+      "performedBy": "Dr. Ramesh Sharma",
+      "userRole": "ADMIN",
+      "entityType": "USER",
+      "entityId": "usr-admin-1",
+      "details": "Dr. Ramesh Sharma logged into ADMIN workspace.",
+      "timestamp": "2026-09-14T15:13:42.584Z"
+    },
+    {
+      "id": "aud-1789398805154-9xdo",
+      "action": "COMPLAINT_CREATED",
+      "performedBy": "Ananya Iyer",
+      "userRole": "STUDENT",
+      "entityType": "COMPLAINT",
+      "entityId": "cmp-1789398805153",
+      "details": "Created ticket CMP-2026-1005 in Room B-204 (MEDIUM - Plumbing).",
+      "timestamp": "2026-09-14T15:13:25.154Z"
+    },
+    {
+      "id": "aud-1789398805069-450w",
+      "action": "USER_LOGIN",
+      "performedBy": "Ananya Iyer",
+      "userRole": "STUDENT",
+      "entityType": "USER",
+      "entityId": "usr-student-1",
+      "details": "Ananya Iyer logged into STUDENT workspace.",
+      "timestamp": "2026-09-14T15:13:25.069Z"
+    },
+    {
+      "id": "aud-1789398791759-exr4",
+      "action": "USER_LOGIN",
+      "performedBy": "Ananya Iyer",
+      "userRole": "STUDENT",
+      "entityType": "USER",
+      "entityId": "usr-student-1",
+      "details": "Ananya Iyer logged into STUDENT workspace.",
+      "timestamp": "2026-09-14T15:13:11.759Z"
+    },
+    {
+      "id": "aud-1789398774843-vms5",
+      "action": "USER_LOGIN",
+      "performedBy": "Dr. Ramesh Sharma",
+      "userRole": "ADMIN",
+      "entityType": "USER",
+      "entityId": "usr-admin-1",
+      "details": "Dr. Ramesh Sharma logged into ADMIN workspace.",
+      "timestamp": "2026-09-14T15:12:54.843Z"
+    },
     {
       "id": "aud-1789281377543-84cx",
       "action": "DEMO_ROLE_SWITCH",

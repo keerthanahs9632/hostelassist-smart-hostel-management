@@ -14,8 +14,12 @@ import notificationRoutes from './server/routes/notificationRoutes.js';
 import auditRoutes from './server/routes/auditRoutes.js';
 import preventiveRoutes from './server/routes/preventiveRoutes.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const currentFilename = typeof __filename !== 'undefined'
+  ? __filename
+  : (typeof import.meta !== 'undefined' && import.meta.url ? fileURLToPath(import.meta.url) : process.cwd());
+const currentDirname = typeof __dirname !== 'undefined'
+  ? __dirname
+  : path.dirname(currentFilename);
 
 // Ensure upload directory exists
 const uploadDir = path.join(process.cwd(), 'public', 'uploads');
@@ -111,19 +115,21 @@ async function startServer() {
     next();
   });
 
-  // Vite middleware for development
-  if (process.env.NODE_ENV !== 'production') {
+  // Serve built static frontend files if dist/index.html exists, otherwise fallback to Vite middleware
+  const distPath = path.join(process.cwd(), 'dist');
+  const distIndex = path.join(distPath, 'index.html');
+
+  if (fs.existsSync(distIndex)) {
+    app.use(express.static(distPath));
+    app.get('*', (_req, res) => {
+      res.sendFile(distIndex);
+    });
+  } else {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa',
     });
     app.use(vite.middlewares);
-  } else {
-    const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    app.get('*', (_req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
   }
 
   app.listen(PORT, '0.0.0.0', () => {
