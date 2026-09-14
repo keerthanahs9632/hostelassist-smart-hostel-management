@@ -1,0 +1,6 @@
+{
+  "name": "HOSTELASSIST",
+  "description": "Smart Hostel Operations & Predictive Maintenance Platform with automated classification, SLA monitoring, recurring issue detection, asset QR tracking, and technician assignment.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
